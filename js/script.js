@@ -1,5 +1,8 @@
 async function loadJsonData() {
-  let promise = await fetch("./js/menu_dinamic.json");
+  let promise = await fetch("/js/menu_dinamic.json");
+
+  if (!promise.ok) promise = await fetch("/menu-dinamic/js/menu_dinamic.json");
+
   let data = await promise.json();
 
   return data;
